@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import "../../styles/home.css";
 
 export const Signup = () => {
-  const [newUser, setNewUser] = useState("");
-  const [newPass, setNewPass] = useState("");
+  const [user, setUser] = useState({});
 
   const createUser = async () => {
     const response = await fetch(
-      "https://3000-thelgaris-flaskresthell-mn6bjxci1db.ws-eu43.gitpod.io/user",
+      "https://3001-4geeksacade-reactflaskh-vwqwkly1h2c.ws-eu44.gitpod.io/api/signup",
       {
         method: "POST",
-        body: JSON.stringify({ email: newUser }),
         headers: { "content-type": "application/json" },
+        body: JSON.stringify(user),
       }
     );
     const data = await response.json();
@@ -22,12 +21,12 @@ export const Signup = () => {
     <div className="text-center mt-5">
       <input
         onChange={(e) => {
-          setNewUser(e.target.value);
+          setUser({ ...user, email: e.target.value });
         }}
       ></input>
       <input
         onChange={(e) => {
-          setNewPass(e.target.value);
+          setUser({ ...user, password: e.target.value });
         }}
       ></input>
       <button
@@ -37,7 +36,6 @@ export const Signup = () => {
       >
         Create User
       </button>
-      <p>{newUser}</p>
     </div>
   );
 };

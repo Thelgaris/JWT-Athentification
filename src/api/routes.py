@@ -9,13 +9,12 @@ api = Blueprint('api', __name__)
 
 
 @api.route('/signup', methods=['POST'])
-def Newuser():
+def Register_user():
         body_email = request.json.get(email)
-        email = User(email=body_name)
         body_password = request.json.get(password)
-        password = User(password=body_password)
-        db.session.add(user)
+        new_user = User(email=body_name, password=body_password)
+        db.session.add(new_user)
         db.session.commit()
-        return jsonify({"User": User.email}), 200
+        return jsonify({"User": new_user.serialize()}), 200
 
   
