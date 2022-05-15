@@ -20,7 +20,14 @@ export const Navbar = () => {
         </div>
         <div className="ml-auto">
           <Link to="/logout">
-            <button className="btn btn-primary">Log Out</button>
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                localStorage.removeItem("token");
+              }}
+            >
+              Log Out
+            </button>
           </Link>
         </div>
       </div>

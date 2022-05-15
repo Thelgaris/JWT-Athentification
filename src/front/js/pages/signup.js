@@ -6,7 +6,7 @@ export const Signup = () => {
 
   const createUser = async () => {
     const response = await fetch(
-      "https://3001-4geeksacade-reactflaskh-vwqwkly1h2c.ws-eu44.gitpod.io/api/signup",
+      "https://3001-thelgaris-jwtathentific-zpl9m4yaiwv.ws-eu45.gitpod.io/api/signup",
       {
         method: "POST",
         headers: { "content-type": "application/json" },
